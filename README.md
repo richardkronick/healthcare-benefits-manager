@@ -1,6 +1,6 @@
 # Employee Benefits Manager
 
-This front-end app is intended to be used by employers to manage their employees benfits. It displays a list of employees, their associated dependents
+This front-end app is intended to be used by employers to manage their employees benefits. It displays a list of employees, their associated dependents
 and a summary of relevant costs associated with each employees benefits. In addition, you can add and remove dependents and add employees.
 
 ## Dependencies
