@@ -3,6 +3,8 @@ import { useRecoilValue } from 'recoil';
 import { selectedEmployeeState } from '../state/atoms';
 import { Card, Divider } from 'semantic-ui-react';
 import { calculateBenefitsCost } from '../utils/calculations';
+import { numPaychecksPerYear } from '../common/constants'
+import { toDollars } from '../utils/calculations';
 
 const BenefitsSummary = () => {
   const selectedEmployee = useRecoilValue(selectedEmployeeState);
@@ -11,7 +13,7 @@ const BenefitsSummary = () => {
 
   const { totalCost, totalDiscount } = calculateBenefitsCost(selectedEmployee);
 
-  const costPerPaycheck = totalCost / 26;
+  const costPerPaycheck = totalCost / numPaychecksPerYear;
 
   return (
     <Card>
@@ -19,12 +21,12 @@ const BenefitsSummary = () => {
         <Card.Header>Benefits Summary</Card.Header>
         <Divider />
         <Card.Description>
-          <p>Annual Benefits Cost: ${totalCost.toFixed(2)}</p>
-          <p>Total Discount Applied: ${totalDiscount.toFixed(2)}</p>
+          <p>Annual Benefits Cost: ${toDollars(totalCost)}</p>
+          <p>Total Discount Applied: ${toDollars(totalDiscount)}</p>
           <Divider />
-          <p>Monthly Salary: ${(selectedEmployee.monthlySalary).toFixed(2)}</p>
-          <p>Cost Per Paycheck: ${(costPerPaycheck).toFixed(2)}</p>
-          <p>Total Monthly Disbursement: ${(selectedEmployee.monthlySalary - costPerPaycheck).toFixed(2)}</p>
+          <p>Monthly Salary: ${toDollars(selectedEmployee.monthlySalary)}</p>
+          <p>Cost Per Paycheck: ${toDollars(costPerPaycheck)}</p>
+          <p>Total Monthly Disbursement: ${toDollars(selectedEmployee.monthlySalary - costPerPaycheck)}</p>
         </Card.Description>
       </Card.Content>
     </Card>

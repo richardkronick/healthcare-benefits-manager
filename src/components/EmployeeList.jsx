@@ -22,7 +22,7 @@ const EmployeeList = () => {
             className={selectedEmployee?.id === employee.id ? 'selected-row' : ''}
             onClick={() => setSelectedEmployee(employee)}
           >
-            <Table.Cell>{employee.name}</Table.Cell>
+            <Table.Cell className={'employee-list-name'}>{employee.name}</Table.Cell>
             <Table.Cell>{employee.dependents.length}</Table.Cell>
           </Table.Row>
         ))}

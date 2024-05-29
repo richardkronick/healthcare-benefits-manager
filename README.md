@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Employee Benefits Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This front-end app is intended to be used by employers to manage their employees benfits. It displays a list of employees, their associated dependents
+and a summary of relevant costs associated with each employees benefits. In addition, you can add and remove dependents and add employees.
 
-## Available Scripts
+## Dependencies
 
-In the project directory, you can run:
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-### `npm start`
+## Technologies and Important Packages Used
+- [React and Create React App](https://github.com/facebook/create-react-app)
+- [Recoil](https://recoiljs.org/) for state management
+- [Semantic UI](https://react.semantic-ui.com/) for styling
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Why these technologies?
+- React because it can provide a great user experience as well as developer experience. Vue could also be a good choice.
+- Recoil is, in the author's opinion, usually the best choice for state management. The react context API could work. MobX could work. Redux makes me sad.
+- Semantic UI was chosen because it is easy, fast and looks nice. But there are many other good choices like Material UI, Tailwind, etc.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to run the app
+- Clone the repo to your local machine
+- Open a terminal at the rool and run `npm run server` 
+    - This will run a mock API server called [json-server](https://www.npmjs.com/package/json-server)
+    - And will give you some starting mock data (employees with dependents)
+    - The mock data comes from the db.json file
+- Open another terminal and run `npm start`
+    - This runs the app in the development mode.
+    - It will open [http://localhost:3000](http://localhost:3000) in your browser.
+    - Thanks to hot reloading installed by create-react-app the page will reload when you make changes.
 
-### `npm test`
+## Assumptions in the App
+- In /src/common/constants.js you will find some defaults and assumptions, such as the monthly employee salary and annual cost of benefits.
+- There is a 10% discount offered to employees and dependents whose names start with the letter A.
+- A bi-weekly payment schedule is used (26 payments per year).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Things I might have done differently if...
+If I knew this was an app going to production, or that would become larger, I would
+- Probably use next.js for integrated API routing, automatic code splitting, TypeScript support, the intuitive file structure routing, etc.
+- Definitely add some unit and integration testing
+- Use TypeScript
+- Use some sort of persistent storage, such as a database
+- Do some performance testing and see where [useMemo](https://react.dev/reference/react/useMemo) and [useCallback](https://react.dev/reference/react/useContext) might be beneficial
+- Implement this as a monorepo using [nx](https://nx.dev/) if this could become a large application
+- Add authentication and authorization
+- Cleanup inline styles and consolidate them
+- Add more validation, such as checking for numbers in names
+- Add the ability to delete an employee
+- Possibly consider combining pieces of state in more complex components into a single object piece of state
+- Maybe use a different styling library. Semantic UI has a smaller community and usage than some others.

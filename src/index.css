@@ -48,15 +48,18 @@ code {
 .dependent-item {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
 }
 
 .dependent-input {
-  margin-right: 10px;
+  margin-right: 0.5rem;
 }
 
 .dependent-list {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
 }
 
+.employee-list-name {
+  cursor: pointer;
+}

@@ -3,23 +3,25 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { selectedEmployeeState, employeesState } from '../state/atoms';
 import { Form, Button, Message } from 'semantic-ui-react';
 import { v4 as uuidv4 } from 'uuid';
+import { dependentRequiresEmployeeMessage, noEmptyDependentNameMessage } from '../common/constants';
 
 const AddDependentForm = () => {
-  const [name, setName] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useRecoilState(selectedEmployeeState);
   const setEmployees = useSetRecoilState(employeesState);
+  
+  const [name, setName] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!selectedEmployee) {
-      setError('Please select an employee first to add a dependent.');
+      setError(dependentRequiresEmployeeMessage);
       return;
     }
 
     if (name.trim() === '') {
-      setError('Dependent name cannot be empty.');
+      setError(noEmptyDependentNameMessage);
       return;
     }
 
@@ -42,7 +44,7 @@ const AddDependentForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      {error && <Message error content={error} />}
+      {error ? <Message error content={error} /> : <></>}
       <Form.Field>
         <label>Name</label>
         <input

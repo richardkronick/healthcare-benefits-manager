@@ -7,16 +7,25 @@ import AddEmployeeForm from './components/AddEmployeeForm';
 import AddDependentForm from './components/AddDependentForm';
 import BenefitsSummary from './components/BenefitsSummary';
 import { employeesState } from './state/atoms';
-import './index.css';
 
 const App = () => {
   const setEmployees = useSetRecoilState(employeesState);
 
   useEffect(() => {
-    fetch('http://localhost:5000/employees')
-      .then(response => response.json())
-      .then(data => setEmployees(data))
-      .catch(error => console.error('Error fetching employee data:', error));
+    const fetchEmployees = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/employees');
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        const data = await response.json();
+        setEmployees(data);
+      } catch (error) {
+        console.error('Error fetching employee data: ', error);
+      }
+    };
+
+    fetchEmployees();
   }, [setEmployees]);
 
   return (
