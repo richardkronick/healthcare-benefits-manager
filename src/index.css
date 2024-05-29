@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-container {
+  padding: 0 4rem 4rem 4rem;
+}
+
+.instruction {
+  margin-bottom: 1rem;
+}
+
+.ui.primary.button {
+  background-color: #3575d6;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+}
+
+.header-segment {
+  background-color: #3575d6 !important;
+  color: white;
+  padding: 1em 0;
+}
+
+.header-text {
+  color: white !important;
+}
+
+.selected-row {
+  background-color: #d3d3d3;
+}
+
+.saved-message {
+  color: green;
+}

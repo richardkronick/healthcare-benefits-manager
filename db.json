@@ -1,0 +1,28 @@
+{
+    "employees": [
+      {
+        "id": "e1a2b3c4-d5e6-7f89-g0h1-i2j3k4l5m6n7",
+        "name": "Ava",
+        "monthlySalary": 2000,
+        "dependents": []
+      },
+      {
+        "id": "n7m6l5k4-j3i2-h1g0-f9e8-d7c6-b5a4",
+        "name": "Bob",
+        "monthlySalary": 2000,
+        "dependents": [
+          { "id": "d8e7f6g5-h4i3-j2k1-l0m9-n8o7-p6q5", "name": "Bobby Jr" },
+          { "id": "q5p4o3-n2m1-l0k9-j8i7-h6g5-f4e3", "name": "Barbara" }
+        ]
+      },
+      {
+        "id": "c4b3a2-e1d0-f9g8-h7i6-j5k4-l3m2",
+        "name": "Vint",
+        "monthlySalary": 2000,
+        "dependents": [
+          { "id": "a1b2c3-d4e5-f6g7-h8i9-j0k1-l2m3", "name": "Alice" }
+        ]
+      }
+    ]
+  }
+  
