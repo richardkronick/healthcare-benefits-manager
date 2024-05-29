@@ -7,7 +7,7 @@ import { calculateBenefitsCost } from '../utils/calculations';
 const BenefitsSummary = () => {
   const selectedEmployee = useRecoilValue(selectedEmployeeState);
 
-  if (!selectedEmployee) return <div>Select an employee to see benefits summary</div>;
+  if (!selectedEmployee) return <div>Select an employee to see their benefits summary</div>;
 
   const { totalCost, totalDiscount } = calculateBenefitsCost(selectedEmployee);
 

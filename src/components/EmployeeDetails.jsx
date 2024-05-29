@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { selectedEmployeeState, employeesState } from '../state/atoms';
-import { Card, Form, Button, Divider } from 'semantic-ui-react';
+import { Card, Form, Button, Icon } from 'semantic-ui-react';
 
 const EmployeeDetails = () => {
   const [employees, setEmployees] = useRecoilState(employeesState);
@@ -30,6 +30,10 @@ const EmployeeDetails = () => {
     setDependents(updatedDependents);
   };
 
+  const handleAddDependent = () => {
+    setDependents([...dependents, { id: '', name: '' }]);
+  };
+
   const handleSave = () => {
     const updatedEmployee = { ...selectedEmployee, name: employeeName, dependents };
 
@@ -45,42 +49,48 @@ const EmployeeDetails = () => {
     }, 2000);
   };
 
+  const handleRemoveDependent = (index) => {
+    const updatedDependents = dependents.filter((_, i) => i !== index);
+    setDependents(updatedDependents);
+  };
+
   return (
     <Card>
       <Card.Content>
         <Card.Header>
-            Employee Summary
+          <Form.Input 
+            value={employeeName}
+            onChange={handleEmployeeNameChange}
+          />
         </Card.Header>
-        <Divider />
-            <Card.Description>
-                <div>Note: All names are editable and saved by clicking the Save button</div>
-                <Divider />
-                    Name: 
-                    <Form.Input 
-                    value={employeeName}
-                    onChange={handleEmployeeNameChange}
-                />
-            </Card.Description>
-        <Divider hidden />
         <Card.Description>
-          Dependents:
-          <ul>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            Dependents
+            <Button icon color='green' size='mini' onClick={handleAddDependent} style={{ marginLeft: '10px' }}>
+              <Icon name='plus' />
+            </Button>
+          </div>
+          <div className="dependent-list">
             {dependents.length === 0 ? (
-              <li>None</li>
+              <div>None</div>
             ) : (
               dependents.map((dependent, index) => (
-                <li key={index}>
+                <div key={index} className="dependent-item">
                   <Form.Input 
                     value={dependent.name}
                     onChange={(e) => handleDependentNameChange(index, e.target.value)}
+                    className="dependent-input"
                   />
-                </li>
+                  <Button icon color='red' size='mini' onClick={() => handleRemoveDependent(index)}>
+                    <Icon name='trash' />
+                  </Button>
+                </div>
               ))
             )}
-          </ul>
+          </div>
         </Card.Description>
         <Button onClick={handleSave} primary>Save</Button>
-        {isSaved && <p class='saved-message'>Saved</p>}
+        {isSaved && <p className="saved-message">Saved</p>}
       </Card.Content>
     </Card>
   );

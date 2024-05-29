@@ -44,3 +44,19 @@ code {
 .saved-message {
   color: green;
 }
+
+.dependent-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.dependent-input {
+  margin-right: 10px;
+}
+
+.dependent-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+

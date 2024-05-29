@@ -37,6 +37,7 @@ const App = () => {
           </Grid.Row>
         </Grid>
       </Segment>
+      {/* You can comment this in if you would like a separate "Add Dependents" form
       <Segment>
         <Header as="h2" textAlign="center">Add Dependents</Header>
         <div className="instruction" style={{ textAlign: 'center' }}>
@@ -50,7 +51,7 @@ const App = () => {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Segment>
+      </Segment> */}
       <Segment>
         <Grid stackable>
           <Grid.Row columns={2}>
