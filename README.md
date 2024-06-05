@@ -47,3 +47,4 @@ If I knew this was an app going to production, or that would become larger, I wo
 - Add the ability to delete an employee
 - Possibly consider combining pieces of state in more complex components into a single object piece of state
 - Maybe use a different styling library. Semantic UI has a smaller community and usage than some others.
+- Refactor components such as EmployeeDetails to separate concerns, such as separate form handling, custom hooks for business logic.
