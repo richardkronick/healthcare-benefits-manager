@@ -19,7 +19,7 @@ and a summary of relevant costs associated with each employees benefits. In addi
 
 ## How to run the app
 - Clone the repo to your local machine
-- Open a terminal at the rool and run `npm run server` 
+- Open a terminal at the root and run `npm run server` 
     - This will run a mock API server called [json-server](https://www.npmjs.com/package/json-server)
     - And will give you some starting mock data (employees with dependents)
     - The mock data comes from the db.json file
